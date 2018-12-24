@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             Null.class,
             ShoppingFragment.class,
             Null2.class,
-            Null3.class,
+            UserFragment.class,
                 };
     String[] tabname={
             "d","b","a","v"
@@ -28,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
     int[] noselectimage={
             R.drawable.icon_detail_cache_disable,
             R.drawable.icon_dynamic,
+            R.drawable.icon_videos,
             R.drawable.icon_mine,
-            R.drawable.icon_videos
     };
     int[] selectimage={
             R.drawable.icon_detail_cache,
             R.drawable.icon_dynamic_selected,
+            R.drawable.icon_videos_selected,
             R.drawable.icon_mine_selected,
-            R.drawable.icon_videos_selected
     };
     ActionBar actionBar;
     @Override

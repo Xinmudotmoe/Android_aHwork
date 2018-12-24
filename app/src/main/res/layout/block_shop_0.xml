@@ -63,7 +63,7 @@
                 android:layout_marginRight="20dp"
                 android:gravity="fill_horizontal"
                 android:scaleType="fitCenter"
-                android:src="@drawable/jsbundles_jdreactcomment_images_jdreact_comment_add_cart" />
+                android:src="@drawable/jd_jsbundles_jdreactcomment_images_jdreact_comment_add_cart" />
             <!-- FIXME: 并不能使用 -->
         </LinearLayout>
         <TextView

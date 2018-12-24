@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserFragment">
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary">
+            <!-- 模拟ActionBar
+                 暂时不知道有何用途 TODO -->
+        </LinearLayout>
+        <ScrollView
+            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:scrollbars="vertical"
+            android:fadingEdge="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"><!--加强版LL 自带垂直滚动条 -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/user_cl">
+                        <!--用户区 -->
+
+                        <ImageView
+                            android:id="@+id/userHead"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginBottom="32dp"
+                            android:layout_weight="1"
+                            android:src="@drawable/cirno"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/userName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:text="cirno"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/userHead"
+                            app:layout_constraintTop_toTopOf="@+id/userHead" />
+
+                        <ImageView
+                            android:id="@+id/userSax"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:src="@drawable/ac_user_gender_girl"
+                            app:layout_constraintBottom_toBottomOf="@+id/userName"
+                            app:layout_constraintStart_toEndOf="@+id/userName"
+                            app:layout_constraintTop_toTopOf="@+id/userName" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/userName">
+
+                            <TextView
+                                android:id="@+id/balanceSymbol"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="￥"
+                                android:textColor="#ff0000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/balance_Integer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:layout_weight="1"
+                                android:text="999"
+                                android:textColor="#ff0000"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginRight="2dp"
+                                android:layout_weight="1"
+                                android:text="."
+                                android:textColor="#ff0000"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:id="@+id/balance_decimal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="99"
+                                android:textColor="#ff0000"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </android.support.constraint.ConstraintLayout>
+                    <LinearLayout
+                        android:id="@+id/fn3_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:id="@+id/setting"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="40dp"
+                            android:src="@drawable/ac_icon_mine_setting" />
+                        <!-- 把设置挤到右边
+                             思考是否需要遮罩层来覆盖到下一层的事件
+                             不需要的话就把setting移到CL中 XXX -->
+                        <LinearLayout
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="#ddd"/>
+                <!-- 分割线 -->
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>
