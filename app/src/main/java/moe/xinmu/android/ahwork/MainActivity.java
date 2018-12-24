@@ -1,5 +1,6 @@
 package moe.xinmu.android.ahwork;
 
+import android.app.ActionBar;
 import android.graphics.Color;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentTabHost fth;
     Class[] fragments={
             Null.class,
-            Null1.class,
+            ShoppingFragment.class,
             Null2.class,
             Null3.class,
                 };
@@ -36,12 +37,15 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.icon_mine_selected,
             R.drawable.icon_videos_selected
     };
+    ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fth=findViewById(android.R.id.tabhost);
         fth.setup(this,getSupportFragmentManager(),R.id.main_llf);
+        actionBar=getActionBar();
+
         initTab();
     }
 
@@ -50,23 +54,20 @@ public class MainActivity extends AppCompatActivity {
             TabHost.TabSpec tabSpec=fth.newTabSpec(tabname[i]).setIndicator(getTabView(i));
             fth.addTab(tabSpec,fragments[i],null);
         }
-        fth.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
-            public void onTabChanged(String tabId) {
-                TabWidget tw=fth.getTabWidget();
-                for (int i=0;i<fragments.length;i++){
-                    View view=tw.getChildTabViewAt(i);
-                    TextView tv=view.findViewById(R.id.text);
-                    ImageView iv=view.findViewById(R.id.iv);
-                    tv.setText(tabname[i]);
-                    if(i==fth.getCurrentTab()){
-                        tv.setTextColor(Color.BLUE);
-                        iv.setImageResource(selectimage[i]);
-                    }
-                    else{
-                        tv.setTextColor(Color.GRAY);
-                        iv.setImageResource(noselectimage[i]);
-                    }
+        fth.setOnTabChangedListener(tabId -> {
+            TabWidget tw=fth.getTabWidget();
+            for (int i=0;i<fragments.length;i++){
+                View view=tw.getChildTabViewAt(i);
+                TextView tv=view.findViewById(R.id.text);
+                ImageView iv=view.findViewById(R.id.iv);
+                tv.setText(tabname[i]);
+                if(i==fth.getCurrentTab()){
+                    tv.setTextColor(Color.BLUE);
+                    iv.setImageResource(selectimage[i]);
+                }
+                else{
+                    tv.setTextColor(Color.GRAY);
+                    iv.setImageResource(noselectimage[i]);
                 }
             }
         });
@@ -86,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
             iv.setImageResource(noselectimage[i]);
         }
         return view;
-
     }
 
 }
