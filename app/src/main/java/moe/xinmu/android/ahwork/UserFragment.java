@@ -24,11 +24,11 @@ public class UserFragment extends Fragment {
         ll=view.findViewById(R.id.fn3_ll);
         constraintLayout=view.findViewById(R.id.user_cl);
         constraintLayout.setOnClickListener(v -> {
-            Intent it=new Intent(inflater.getContext(),Main2Activity.class);
+            Intent it=new Intent(inflater.getContext(),UserSettingActivity.class);
             inflater.getContext().startActivity(it);
         });
         setting=view.findViewById(R.id.setting);
-        setting.setOnClickListener(v -> Log.d("click","setting"));
+        setting.setOnClickListener(v -> startActivity(new Intent(UserFragment.this.getContext(),AllSettingActivity.class)));
         return view;
     }
 }

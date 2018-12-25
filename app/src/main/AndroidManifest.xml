@@ -18,10 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity"
-            android:theme="@style/AppTheme">
-
-        </activity>
+        <activity
+            android:name=".UserSettingActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AllSettingActivity" />
+        <activity android:name=".Main4Activity"></activity>
     </application>
 
 </manifest>

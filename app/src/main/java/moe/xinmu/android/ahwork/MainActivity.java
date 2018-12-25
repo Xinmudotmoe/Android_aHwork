@@ -1,6 +1,7 @@
 package moe.xinmu.android.ahwork;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar=getActionBar();
 
         initTab();
+
     }
 
     private void initTab() {
