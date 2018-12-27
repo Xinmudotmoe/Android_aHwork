@@ -20,9 +20,14 @@
         </activity>
         <activity
             android:name=".UserSettingActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".AllSettingActivity" />
-        <activity android:name=".Main4Activity"></activity>
+             />
+        <activity android:name=".AllSettingActivity"
+            android:theme="@style/AppThemeHasBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".LoginActivity"/>
     </application>
 
 </manifest>
