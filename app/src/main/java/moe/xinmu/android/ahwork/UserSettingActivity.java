@@ -21,7 +21,7 @@ public class UserSettingActivity extends AppCompatActivity {
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         ll=findViewById(R.id.main2_usersettings);
         dataget();
-        createOptionTab("蛤","笑",false);
+        createOptionTab("Test","0.11",false);
     }
 
     private void dataget() {
