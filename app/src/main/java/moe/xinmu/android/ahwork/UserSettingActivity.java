@@ -1,5 +1,6 @@
 package moe.xinmu.android.ahwork;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 
 public class UserSettingActivity extends AppCompatActivity {
     LinearLayout ll;
-    HashMap<View,String> vsh=new HashMap<>();
+    HashMap<View,View.OnClickListener> vsh=new HashMap<>();
     HashMap<String,String> ss=new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class UserSettingActivity extends AppCompatActivity {
         //getActionBar().setDisplayHomeAsUpEnabled(true);
         ll=findViewById(R.id.main2_usersettings);
         dataget();
-        createOptionTab("Test","0.11",false);
+        createOptionTab("Test","0.11");
     }
 
     private void dataget() {
@@ -38,7 +39,7 @@ public class UserSettingActivity extends AppCompatActivity {
         if(!cansetting)
             a.findViewById(R.id.imageView3).setVisibility(View.INVISIBLE);
         else{
-            vsh.put(bt,name);
+            vsh.put(bt,this::toLogin);
             bt.setOnClickListener(this::tab_onClick);
         }
         tv.setText(value);
@@ -46,7 +47,11 @@ public class UserSettingActivity extends AppCompatActivity {
         return a;
     }
     void tab_onClick(View v){
-        Log.i("asdfgh",vsh.get(v));
-        //TODO
+        try{
+            vsh.get(v).onClick(v);
+        } catch (NullPointerException ignored){ }
+    }
+    void toLogin(View v){
+        startActivity(new Intent(this,LoginActivity.class));
     }
 }

@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -41,16 +43,15 @@
                             android:textStyle="bold" /><!-- 商品名 -->
                         <TextView
                             android:id="@+id/textView3"
-                            android:layout_marginTop="3dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
                             android:text="$_$"
-                            android:textColor="#f23030"/><!-- 商品价格 -->
+                            android:textColor="#f23030" /><!-- 商品价格 -->
                     </LinearLayout>
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -66,10 +67,14 @@
                 android:src="@drawable/jd_jsbundles_jdreactcomment_images_jdreact_comment_add_cart" />
             <!-- FIXME: 并不能使用 -->
         </LinearLayout>
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#00ffffff"/>
     </FrameLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="#aaa"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
 </android.support.constraint.ConstraintLayout>

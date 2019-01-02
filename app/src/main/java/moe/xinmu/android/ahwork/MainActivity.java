@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar=getActionBar();
 
         initTab();
-        //startActivity(new Intent(this,LoginActivity.class));
+        //startActivity(new Intent(this,RegisteredActivity.class));
     }
 
     private void initTab() {

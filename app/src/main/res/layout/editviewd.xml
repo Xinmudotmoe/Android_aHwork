@@ -2,29 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:orientation="vertical"
     android:id="@+id/ev_lll">
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:tint="@color/colorEditnoSelect"
-            android:src="@drawable/bili_ic_player_login_username_default" />
-        <!-- android:tint  setColorFilter设置颜色 -->
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@android:id/icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:tint="@color/colorEditnoSelect"
+                android:src="@drawable/bili_ic_player_login_username_default" />
+            <!-- android:tint  setColorFilter设置颜色 -->
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textCursorDrawable="@color/colorEditSelect"
-            android:layout_weight="1"
-            android:background="#00000000" />
-    </LinearLayout>
-
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp">
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textCursorDrawable="@color/colorEditSelect"
+                android:layout_weight="1"
+                android:layout_marginTop="1dp"
+                android:background="#00000000"
+                android:inputType="textPassword"/>
+        </LinearLayout>
+    </FrameLayout>
     <LinearLayout
         android:layout_marginTop="3dp"
         android:layout_width="match_parent"
