@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
-import java.text.Format;
 import java.util.HashMap;
 
 
@@ -71,5 +69,4 @@ public class UserFragment extends Fragment {
         raw.put("name","NoLogin");
         raw.put("balance","0.00");
     }
-
 }
