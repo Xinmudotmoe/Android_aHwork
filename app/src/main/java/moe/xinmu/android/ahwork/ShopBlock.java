@@ -1,21 +1,19 @@
 package moe.xinmu.android.ahwork;
 
 
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.HashMap;
+
+import moe.xinmu.android.ahwork.backend.MasterDatabaseUtils;
+import moe.xinmu.android.ahwork.backend.UserDatabaseUtils;
 
 public class ShopBlock {
     Context context;
@@ -31,13 +29,25 @@ public class ShopBlock {
         iv=target.findViewById(R.id.imageView);
         title=target.findViewById(R.id.textView);
         price=target.findViewById(R.id.textView3);
+        target.findViewById(R.id.bs_cart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(MasterDatabaseUtils.isLogin(ShopBlock.this.context))
+                {
+                    new UserDatabaseUtils(target.getContext(),MasterDatabaseUtils.getusername(ShopBlock.this.context)).addtocart(id);
+                    Toast.makeText(target.getContext(),"成功增加到购物车",Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(target.getContext(),"您未登陆",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         refresh();
     }
     private void refresh(){
         MasterDatabaseUtils mdu=new MasterDatabaseUtils(context);
         ho=mdu.getCommodityByid(id);
         if(!(boolean)ho.get("get")){
-            throw new Error("TODO");//TODO
+            throw new Error("数据获取失败");//TODO
         }
         String img=(String)ho.get("img");
         try {
@@ -47,6 +57,8 @@ public class ShopBlock {
         }
         title.setText((String)ho.get("title"));
         price.setText("￥ "+ho.get("priceGold"));
+
+
     }
     public View getView(){
         return target;

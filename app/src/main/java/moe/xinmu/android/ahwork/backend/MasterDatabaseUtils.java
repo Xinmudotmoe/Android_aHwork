@@ -1,4 +1,4 @@
-package moe.xinmu.android.ahwork;
+package moe.xinmu.android.ahwork.backend;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -193,5 +193,50 @@ public class MasterDatabaseUtils {
             data=cursor.getDouble(0);
         cursor.close();
         return data;
+    }
+    public int getitemquantity(int id){
+        Cursor cursor=sdb.rawQuery("select quantity from commodity where productId=?",new String[]{Integer.toString(id)});
+        int i=0;
+        if(cursor.moveToFirst())
+            i=cursor.getInt(0);
+        return i;
+    }
+    public boolean isLogin(){
+        return context.getSharedPreferences("user_login_information",Context.MODE_PRIVATE).getBoolean("isLogin",false);
+    }
+    public static boolean isLogin(Context context){
+        return context.getSharedPreferences("user_login_information",Context.MODE_PRIVATE).getBoolean("isLogin",false);
+    }
+    public static String getusername(Context context){
+        if(isLogin(context))
+            return context.getSharedPreferences("user_login_information",Context.MODE_PRIVATE).getString("name","");
+        else
+            return "";
+    }
+    public static String getuseruuid(Context context,String name){
+        MasterDatabaseUtils mdu=new MasterDatabaseUtils(context);
+        String uuid=mdu.getUUID(name);
+        mdu.close();
+        return uuid;
+    }
+    public void close(){
+        sdb.close();
+        masterdu.close();
+    }
+    public double getUserBalance() {
+        if(!isLogin())
+            return 0;
+        Cursor cursor=sdb.rawQuery("select balance from user where name=?",new String[]{getusername(context)});
+        double balance=0f;
+        if(cursor.moveToFirst())
+            balance=cursor.getDouble(0);
+        cursor.close();
+        return balance;
+    }
+    public void setUserBalance(double balance){
+        if(!isLogin())
+            return ;
+        sdb.execSQL("update user set balance=? where name=?",new String[]{Double.toString(balance),getusername(context)});
+
     }
 }

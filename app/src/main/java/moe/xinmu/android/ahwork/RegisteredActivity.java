@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import java.util.Random;
 
+import moe.xinmu.android.ahwork.backend.MasterDatabaseUtils;
+
 public class RegisteredActivity extends AppCompatActivity {
     ImageView exit;
     EditText name,pickname,phone,password,vc;

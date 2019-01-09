@@ -2,18 +2,12 @@ package moe.xinmu.android.ahwork;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import moe.xinmu.android.ahwork.backend.MasterDatabaseUtils;
 
 
 public class ShoppingFragment extends Fragment {

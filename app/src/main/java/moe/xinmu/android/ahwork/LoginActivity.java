@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 
+import moe.xinmu.android.ahwork.backend.MasterDatabaseUtils;
 
 
 public class LoginActivity extends AppCompatActivity {

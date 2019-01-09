@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
     Class[] fragments={
             Null.class,
             ShoppingFragment.class,
-            Null2.class,
+            CartFragment.class,
             UserFragment.class,
                 };
     String[] tabname={
-            "d","b","a","v"
+            "null","商城","购物车","用户"
     };
     int[] noselectimage={
             R.drawable.icon_detail_cache_disable,
