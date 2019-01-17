@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,12 +56,9 @@ public class Cart_Item {
         }
         price.setText("￥"+data.get("priceGold"));
         item_number.setText(Integer.toString(udu.getcartcount(id)));
-        check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //TODO
-                cl.update();
-            }
+        check.setOnCheckedChangeListener((buttonView, isChecked) -> {
+
+            cl.update();
         });
         sub.setOnClickListener(v -> {
             int count=new Integer(item_number.getText().toString())-1;
@@ -83,22 +79,19 @@ public class Cart_Item {
                 }
             }
         });
-        item_number.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
-                    int num = new Integer(((EditText) v).getText().toString());
-                    if(num<0){
-                        ((EditText) v).setText("0");
-                        udu.setcartcount(id,num);
-                        cl.update();
-                    }
-                    int nummax=mdu.getitemquantity(id);
-                    if(num>nummax){
-                        ((EditText) v).setText(Integer.toString(nummax));
-                        udu.setcartcount(id,nummax);
-                        cl.update();
-                    }
+        item_number.setOnFocusChangeListener((v, hasFocus) -> {
+            if(!hasFocus){
+                int num = new Integer(((EditText) v).getText().toString());
+                if(num<0){
+                    ((EditText) v).setText("0");
+                    udu.setcartcount(id,num);
+                    cl.update();
+                }
+                int nummax=mdu.getitemquantity(id);
+                if(num>nummax){
+                    ((EditText) v).setText(Integer.toString(nummax));
+                    udu.setcartcount(id,nummax);
+                    cl.update();
                 }
             }
         });

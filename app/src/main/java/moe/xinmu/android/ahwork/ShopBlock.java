@@ -1,6 +1,5 @@
 package moe.xinmu.android.ahwork;
 
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.Log;

@@ -1,7 +1,5 @@
 package moe.xinmu.android.ahwork;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,3 +16,4 @@ public class Null extends Fragment {
         return inflater.inflate(R.layout.fragment_null, null);
     }
 }
+  

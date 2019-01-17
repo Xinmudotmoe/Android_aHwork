@@ -18,7 +18,6 @@ import java.util.HashMap;
 
 import moe.xinmu.android.ahwork.backend.MasterDatabaseUtils;
 
-
 public class UserFragment extends Fragment {
     LinearLayout ll;
     ConstraintLayout constraintLayout;

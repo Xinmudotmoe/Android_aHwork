@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 
 import moe.xinmu.android.ahwork.backend.MasterDatabaseUtils;
 
-
 public class ShoppingFragment extends Fragment {
 
     @Override
